@@ -2,13 +2,6 @@ package de.mdoninger.webcrawler;
 
 import de.mdoninger.webcrawler.data.Website;
 import de.mdoninger.webcrawler.data.WebsiteRepository;
-import org.elasticsearch.action.ActionFuture;
-import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
-import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
-import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
-import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
-import org.elasticsearch.action.index.IndexRequest;
-import org.elasticsearch.client.Client;
 import org.elasticsearch.index.query.FuzzyLikeThisQueryBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
