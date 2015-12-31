@@ -2,6 +2,7 @@ package de.mdoninger.webcrawler;
 
 import de.mdoninger.webcrawler.data.Website;
 import de.mdoninger.webcrawler.data.WebsiteRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.index.query.FuzzyLikeThisQueryBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,6 +18,7 @@ import java.io.IOException;
  * @author Manuel Doninger
  */
 @RestController
+@Slf4j
 public class ImportController {
 
     private final WebsiteRepository websiteRepository;
@@ -39,6 +41,7 @@ public class ImportController {
 
     @RequestMapping(method = RequestMethod.GET, path = "search")
     public Iterable<Website> search(@RequestParam(required = true, name = "q") String q) throws IOException {
+        log.info("Search with query " + q);
         FuzzyLikeThisQueryBuilder fuzzyQuery = new FuzzyLikeThisQueryBuilder();
         fuzzyQuery.likeText(q);
 
