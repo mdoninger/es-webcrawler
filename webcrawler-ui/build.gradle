@@ -24,7 +24,7 @@ task npmInstall(type: Exec) {
     }
 }
 
-task typescriptCompile(type: Exec) {
+task typescriptCompile(type: Exec, dependsOn: 'npmInstall') {
     workingDir 'src'
 
     if (isWindows) {
@@ -34,7 +34,7 @@ task typescriptCompile(type: Exec) {
     }
 }
 
-task copyResources(type: Copy) {
+task copyResources(type: Copy, dependsOn: 'typescriptCompile') {
     from('src') {
         exclude '**/*.ts', 'package.json'
     }
@@ -42,7 +42,17 @@ task copyResources(type: Copy) {
     includeEmptyDirs = false
 }
 
+build.dependsOn copyResources
 
+task devServer(type: Exec) {
+    workingDir 'src'
+
+    if (isWindows) {
+        commandLine 'cmd', '/c', 'npm', 'start'
+    } else {
+        commandLine 'npm', 'start'
+    }
+}
 
 idea {
     module {
