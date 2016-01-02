@@ -10,10 +10,8 @@ import {Response} from "angular2/http";
 })
 export class SearchComponent {
     public searchResult:SearchResult[];
-    public searchResultString:string;
     public title = "Welcome to the Webcrawler Search";
     public searchInput:string;
-    public error:string;
 
     constructor(private _searchService:SearchService) {
     }
