@@ -1,0 +1,53 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    baseName = 'webcrawler-ui'
+    version = '0.0.1-SNAPSHOT'
+}
+
+ext {
+    isWindows = org.gradle.internal.os.OperatingSystem.current().windows
+}
+
+task npmInstall(type: Exec) {
+    workingDir 'src'
+
+    if (isWindows) {
+        commandLine 'cmd', '/c', 'npm', 'install'
+    } else {
+        commandLine 'npm', 'install'
+    }
+}
+
+task typescriptCompile(type: Exec) {
+    workingDir 'src'
+
+    if (isWindows) {
+        commandLine 'cmd', '/c', 'npm', 'run-script', 'tsc'
+    } else {
+        commandLine 'npm', 'run-script', 'tsc'
+    }
+}
+
+task copyResources(type: Copy) {
+    from('src') {
+        exclude '**/*.ts', 'package.json'
+    }
+    into 'build/resources/main/static'
+    includeEmptyDirs = false
+}
+
+
+
+idea {
+    module {
+        sourceDirs += file('src')
+
+        excludeDirs += file('src/node_modules')
+    }
+}
