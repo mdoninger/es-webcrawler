@@ -1,7 +1,7 @@
+<!doctype html>
 <html>
-
 <head>
-    <title>Angular 2 QuickStart</title>
+    <title>Webcrawler Search</title>
 
     <!-- 1. Load libraries -->
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
@@ -19,15 +19,14 @@
                 }
             }
         });
-        System.import('app/boot')
+        System.import('app/search.boot')
                 .then(null, console.error.bind(console));
     </script>
-
 </head>
 
-<!-- 3. Display the application -->
 <body>
-<app>Loading...</app>
+<div class="container">
+    <search-app>Loading...</search-app>
+</div>
 </body>
-
 </html>

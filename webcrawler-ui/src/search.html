@@ -1,47 +1,25 @@
-<!doctype html>
-<html>
-<head>
-    <title>Webcrawler Search</title>
-    <link href="webjars/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-        [ng\:cloak], [ng-cloak], .ng-cloak {
-            display: none !important;
-        }
-    </style>
-</head>
+<h1>{{title}}</h1>
 
-<body ng-app="webcrawler">
-<div class="container">
-    <h1>Greeting</h1>
+<div>
+    <form id="searchForm" (ngSubmit)="submitQuery()">
+        <p>
+            <label for="searchInput" title="Search"></label>
+            <input id="searchInput" [(ngModel)]="searchInput" type="search" title="Search"/>
+        </p>
 
-    <div ng-controller="search" ng-cloak class="ng-cloak">
+        <button type="submit" title="Search" value="Search">
+            <span>Search</span>
+        </button>
+    </form>
 
-        <form id="searchForm" ng-submit="submitQuery()">
-            <p>
-                <label for="searchInput" title="Search"></label>
-                <input id="searchInput" ng-model="searchInput" type="search" title="Search"/>
-            </p>
+    <h2>Search query</h2>
 
-            <button type="submit" title="Search" value="Search">
-                <span>Search</span>
-            </button>
-        </form>
-
-        <h2>Search query</h2>
-
-        <p>{{searchInput}}</p>
-
-        <h2>Result</h2>
-
-        <p>{{result}}</p>
-
-        <p>The ID is {{greeting.id}}</p>
-
-        <p>The content is {{greeting.content}}</p>
-    </div>
+    <p>{{searchInput}}</p>
 </div>
-<script src="webjars/angularjs/1.4.7/angular.js"></script>
-<script src="webjars/angular-ui-bootstrap/0.14.3/ui-bootstrap.js" type="text/javascript"></script>
-<script src="js/webcrawler.js"></script>
-</body>
-</html>
+
+<ul class="resultlist">
+    <li *ngFor="#res of searchResult">
+        <a href="{{res.url}}">{{res.url}}</a><br/>
+        <span style="font-style: italic;">{{res.text}}</span>
+    </li>
+</ul>
