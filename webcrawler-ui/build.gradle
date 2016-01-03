@@ -14,7 +14,23 @@ ext {
     isWindows = org.gradle.internal.os.OperatingSystem.current().windows
 }
 
+task cleanNodeModules(type: Delete) {
+    delete 'src/node_modules'
+}
+
+clean.dependsOn cleanNodeModules
+
 task npmInstall(type: Exec) {
+    workingDir 'src'
+
+    if (isWindows) {
+        commandLine 'cmd', '/c', 'npm', 'install', '--production'
+    } else {
+        commandLine 'npm', 'install', '--production'
+    }
+}
+
+task npmInstallDev(type: Exec) {
     workingDir 'src'
 
     if (isWindows) {
