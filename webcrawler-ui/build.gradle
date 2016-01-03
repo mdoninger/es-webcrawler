@@ -24,16 +24,6 @@ task npmInstall(type: Exec) {
     workingDir 'src'
 
     if (isWindows) {
-        commandLine 'cmd', '/c', 'npm', 'install', '--production'
-    } else {
-        commandLine 'npm', 'install', '--production'
-    }
-}
-
-task npmInstallDev(type: Exec) {
-    workingDir 'src'
-
-    if (isWindows) {
         commandLine 'cmd', '/c', 'npm', 'install'
     } else {
         commandLine 'npm', 'install'
@@ -52,13 +42,23 @@ task typescriptCompile(type: Exec, dependsOn: 'npmInstall') {
 
 task copyResources(type: Copy, dependsOn: 'typescriptCompile') {
     from('src') {
-        exclude '**/*.ts', 'package.json'
+        exclude '**/*.ts', 'node_modules'
     }
     into 'build/resources/main/static'
     includeEmptyDirs = false
 }
 
-build.dependsOn copyResources
+task npmInstallProd(type: Exec, dependsOn: 'copyResources') {
+    workingDir 'build/resources/main/static'
+
+    if (isWindows) {
+        commandLine 'cmd', '/c', 'npm', 'install', '--production'
+    } else {
+        commandLine 'npm', 'install', '--production'
+    }
+}
+
+build.dependsOn npmInstallProd
 
 task devServer(type: Exec) {
     workingDir 'src'
