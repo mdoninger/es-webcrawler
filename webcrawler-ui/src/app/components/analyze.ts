@@ -4,7 +4,7 @@ import {Response} from "angular2/http";
 
 @Component({
     selector: 'analyze',
-    templateUrl: 'analyze.html',
+    templateUrl: 'templates/analyze.html',
     providers: [SearchService]
 })
 export class AnalyzeComponent {

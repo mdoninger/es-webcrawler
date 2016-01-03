@@ -5,7 +5,7 @@ import {Response} from "angular2/http";
 
 @Component({
     selector: 'search-app',
-    templateUrl: 'search.html',
+    templateUrl: 'templates/search.html',
     providers: [SearchService]
 })
 export class SearchComponent {
