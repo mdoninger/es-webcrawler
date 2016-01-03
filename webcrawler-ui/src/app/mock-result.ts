@@ -1,4 +1,4 @@
-import {SearchResult} from "./searchresult";
+import {SearchResult} from "./interfaces/searchresult";
 
 export var RESULT: SearchResult[] = [
     {url: "http://mdoninger.de/testurl1", text: "Test test test test"},

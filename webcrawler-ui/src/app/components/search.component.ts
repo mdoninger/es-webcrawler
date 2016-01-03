@@ -1,6 +1,6 @@
 import {Component} from "angular2/core";
-import {SearchService} from "./search.service";
-import {SearchResult} from "./searchresult";
+import {SearchService} from "./../services/search.service";
+import {SearchResult} from "./../interfaces/searchresult";
 import {Response} from "angular2/http";
 
 @Component({
@@ -10,7 +10,6 @@ import {Response} from "angular2/http";
 })
 export class SearchComponent {
     public searchResult:SearchResult[];
-    public title = "Welcome to the Webcrawler Search";
     public searchInput:string;
 
     constructor(private _searchService:SearchService) {

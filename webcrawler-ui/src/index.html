@@ -9,6 +9,8 @@
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- 2. Configure SystemJS -->
     <script>
@@ -20,17 +22,17 @@
                 }
             }
         });
-        System.import('app/search.boot')
+        System.import('app/boot')
                 .then(null, console.error.bind(console));
     </script>
 
     <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <!--<link href="node_modules/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>-->
+
+    <base href="/">
 </head>
 
 <body>
-<div class="container">
-    <search-app>Loading...</search-app>
-</div>
+<app>Loading...</app>
 </body>
 </html>
