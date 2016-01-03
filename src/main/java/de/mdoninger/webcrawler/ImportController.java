@@ -54,6 +54,7 @@ public class ImportController {
         website.setUrl(url);
         website.setText(text);
         websiteRepository.index(website);
+        log.debug("Finished analyzing of url {}", url);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "search")

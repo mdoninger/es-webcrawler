@@ -13,10 +13,13 @@ export class SearchService {
         const params = new URLSearchParams();
         params.set("q", searchQuery);
 
-        var result = this._http.get("http://localhost:8080/search", new RequestOptions({search: params}));
+        return this._http.get("http://localhost:8080/search", new RequestOptions({search: params}));
+    }
 
-        console.log(result);
+    analyze(url) {
+        const params = new URLSearchParams();
+        params.set("url", encodeURIComponent(url));
 
-        return result;
+        return this._http.get("http://localhost:8080/import", new RequestOptions({search: params}));
     }
 }

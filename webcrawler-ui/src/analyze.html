@@ -1,0 +1,17 @@
+<div>
+    <form id="analyzeUrl" (ngSubmit)="analyzeUrl()">
+        <p>
+            <label for="url">Add a website to the search index:</label>
+            <input id="url" type="url" title="URL" [(ngModel)]="inputUrl"/>
+        </p>
+
+        <button type="submit" title="Analyze" value="Analyze">
+            <span>Analyze</span>
+        </button>
+    </form>
+
+    <p>
+        Status: <br/>
+        {{analyzeState}}
+    </p>
+</div>
