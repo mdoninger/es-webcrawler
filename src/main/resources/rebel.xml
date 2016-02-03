@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com"
-             xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
 
-    <classpath>
-        <dir name="/Users/mdoninger/Projects/webcrawler/src/main/resources"/>
-        <dir name="/Users/mdoninger/Projects/webcrawler/target/classes">
+	<classpath>
+		<dir name="/Users/mdoninger/Projects/es-webcrawler/build/classes/main">
+		</dir>
+        <dir name="/Users/mdoninger/Projects/es-webcrawler/build/resources/main">
         </dir>
-    </classpath>
+		<dir name="/Users/mdoninger/Projects/es-webcrawler/webcrawler-ui/build/resources/main">
+		</dir>
+	</classpath>
+
 </application>
