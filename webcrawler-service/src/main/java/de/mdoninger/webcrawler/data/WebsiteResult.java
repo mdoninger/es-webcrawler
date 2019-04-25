@@ -10,6 +10,8 @@ public class WebsiteResult {
 
     private String url;
 
+    private String title;
+
     private String text;
 
     public String getText() {

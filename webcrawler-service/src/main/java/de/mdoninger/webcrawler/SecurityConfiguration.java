@@ -11,6 +11,7 @@ import org.springframework.security.web.header.writers.StaticHeadersWriter;
  */
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");

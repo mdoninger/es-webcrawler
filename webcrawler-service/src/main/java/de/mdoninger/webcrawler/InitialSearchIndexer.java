@@ -23,7 +23,9 @@ public class InitialSearchIndexer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        importController.crawlUrl("http://www.mdoninger.de/2015/05/16/completion-for-custom-properties-in-spring-boot.html");
-        LOGGER.info("Indexed url {}", "http://www.mdoninger.de/2015/05/16/completion-for-custom-properties-in-spring-boot.html");
+        importController
+                .crawlUrl("http://www.mdoninger.de/2015/05/16/completion-for-custom-properties-in-spring-boot.html");
+        LOGGER.info("Indexed url {}",
+                "http://www.mdoninger.de/2015/05/16/completion-for-custom-properties-in-spring-boot.html");
     }
 }
